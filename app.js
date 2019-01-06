@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const exphbs = require('express-handlebars');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 // Init express
@@ -29,6 +31,10 @@ app.engine('handlebars', exphbs({
     defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
+
+// Body Parser Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -63,7 +69,7 @@ app.get('/about', (req, res) => {
 app.use('/users', users);
 app.use('/questions', questions);
 
-// Local Host Post
+// Local Host Port
 const port = 5000;
 
 // Starts listening for server
