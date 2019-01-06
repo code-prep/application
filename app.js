@@ -30,6 +30,9 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
+// Static Folder
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // ----------
 // Node Routes
