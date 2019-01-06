@@ -22,3 +22,48 @@ mongoose.connect(db, {
     .catch(err => console.log(err));
 
 // ----------
+// Dependencies Middleware Config
+
+// Express-Handlebars Middleware
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main'
+}));
+app.set('view engine', 'handlebars');
+
+
+// ----------
+// Node Routes
+
+// Index route (landing page)
+app.get('/', (req, res) => {
+    res.render('index', { layout: false });
+});
+
+// Dashboard route
+app.get('/dashboard', (req, res) => {
+    res.render('dashboard', {
+        headtitle: 'Dashboard'
+    });
+})
+
+// About route
+app.get('/about', (req, res) => {
+    res.render('about', {
+        headtitle: 'About'
+    });
+});
+
+// ----------
+// App Listen Port
+
+// Use routes (anything starting with /users or /questions)
+app.use('/users', users);
+app.use('/questions', questions);
+
+// Local Host Post
+const port = 5000;
+
+// Starts listening for server
+app.listen(port, (req, res) => {
+    console.log(`Server started on port ${port}...`);
+});
