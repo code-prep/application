@@ -1,0 +1,19 @@
+{{!-- Errors conditional --}}
+{{#if error}}
+    <div class="alert alert-danger">{{error}}
+        <button class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{{/if}}
+
+{{!-- for loop through each error --}}
+{{#each errors}}
+    <div class="alert alert-danger">{{text}}
+        <button class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{{else}}
+
+{{/each}}
