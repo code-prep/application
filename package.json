@@ -1,0 +1,23 @@
+{
+  "name": "codeprep",
+  "version": "1.0.0",
+  "description": "Codeprep source code repository",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-prep/application.git"
+  },
+  "author": "Furqan17",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/code-prep/application/issues"
+  },
+  "homepage": "https://github.com/code-prep/application",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.2"
+  }
+}
