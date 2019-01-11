@@ -11,6 +11,9 @@ const session = require('express-session');
 // Init express
 const app = express();
 
+// Import User routes
+const users = require('./routes/users');
+
 // ----------
 // DataBase Configuration
 
