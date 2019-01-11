@@ -32,6 +32,67 @@ router.get('/register', (req, res) => {
     })
 });
 
+// Register Form (POST)
+router.post('/register', (req, res) => {
+    // Catch errors in an array to display
+    let errors = [];
+
+    // Same password check
+    if (req.body.password != req.body.password2) {
+        errors.push({ text: 'Passwords do not match' });
+    }
+
+    // Password length check
+    if (req.body.password.length < 6) {
+        errors.push({ text: 'Password must be at least 6 characters' });
+    };
+
+    // Error catch
+    if (errors.length > 0) {
+        res.render('users/register', {
+            errors: errors,
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password,
+            password2: req.body.password2
+        });
+    } else {
+        // Duplicate email catch
+        User.findOne({ email: req.body.email })
+            .then(user => {
+                if (user) {
+                    req.flash('error_msg', 'Email is already registered');
+                    res.redirect('/users/register');
+                } else {
+                    // All checks passed
+                    // Create new user
+                    const newUser = new User({
+                        name: req.body.name,
+                        email: req.body.email,
+                        password: req.body.password
+                    });
+                    // Encrypt password using bcrypt
+                    bcrypt.genSalt(10, (err, salt) => {
+                        bcrypt.hash(newUser.password, salt, (err, hash) => {
+                            if (err) throw err;
+                            newUser.password = hash;
+                            // Save as 'User' object in DB
+                            newUser.save()
+                                .then(user => {
+                                    req.flash('success_msg', "Registration sucessful, you can now login");
+                                    res.redirect('/users/login');
+                                })
+                                .catch(err => {
+                                    console.log(err);
+                                    return;
+                                })
+                        });
+                    });
+                }
+            })
+    }
+});
+
 // User Logout
 router.get('/logout', (req, res) => {
     req.logout();
