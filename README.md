@@ -5,6 +5,15 @@
 
 <p align="center"> <b> CodePrep helps you prepare for your coding interviews </b> </p>
 
+## :zap: Installation  
+
+CodePrep **requires** _nodejs_ (and aditionally npm). If you don't already have it you can download it **[here.](https://nodejs.org/en/)** <br>  
+**1.** Fork this repository  
+**2.** Clone the repository and extract the zip file  
+**3.** Using a terminal, `cd` into the file repository  
+**4.** Run `npm install` to install the dependencies *(dependencies are listed below)*  
+**5.** Run `npm start` or `nodemon` to launch the demo **CodePrep** application
+
 ## :camera: Screenshot
 <div align="center">
   <a href="https://raw.githubusercontent.com/code-prep/application/master/public/img/home-src.PNG" target="_blank">
