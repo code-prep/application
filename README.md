@@ -7,12 +7,17 @@
 
 ## :zap: Installation  
 
-CodePrep **requires** _nodejs_ (and aditionally npm). If you don't already have it you can download it **[here.](https://nodejs.org/en/)** <br>  
+CodePrep **requires** _nodejs_ (and aditionally npm). If you don't already have it installed it you can download it **[here.](https://nodejs.org/en/)** <br>  
 **1.** Fork this repository  
 **2.** Clone the repository and extract the zip file  
 **3.** Using a terminal, `cd` into the file repository  
 **4.** Run `npm install` to install the dependencies *(dependencies are listed below)*  
 **5.** Run `npm start` or `nodemon` to launch the demo **CodePrep** application
+
+## :open_file_folder: Dependencies
+This application is built using the following NPM Packages
+
+- **[bcrypt.js:](https://github.com/kelektiv/node.bcrypt.js)** Library to help you hash passwords - Optimized bcrypt in JavaScript with zero dependencies. Compatible to the C++ bcrypt binding on node.js and also working in the browser"
 
 ## :camera: Screenshot
 <div align="center">
