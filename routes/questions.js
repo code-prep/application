@@ -36,6 +36,44 @@ router.get('/', ensureAuthenticated, (req, res) => {
     });
 });
 
+// Add Question (POST)
+router.post('/', ensureAuthenticated, (req, res) => {
+    // Error Catch
+    let errors = [];
+
+    // Server side check 
+    if(!req.body.question){
+        errors.push({text:'Please add a question'});
+    }
+
+    // Server side check 
+    if(!req.body.description){
+        errors.push({text:'Please add a description'});
+    }
+
+    // Server side validation 
+    if(errors.length > 0){
+        res.render('questions/add', {
+            errors: errors,
+            question: req.body.question
+        });
+    } else {
+        // Add new question
+        const newUser = {
+            question: req.body.question,
+            description: req.body.description,
+            difficulty: req.body.difficulty,
+            user: req.user.id
+        }
+        // Save in DB
+        new Question(newUser).save()
+            .then(question => {
+                req.flash('success_msg', 'Question added!');
+                res.redirect('/questions');
+            })
+    }
+});
+
 // Add Question Form (GET)
 router.get('/add', ensureAuthenticated, (req, res) => {
     res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
