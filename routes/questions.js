@@ -74,6 +74,29 @@ router.post('/', ensureAuthenticated, (req, res) => {
     }
 });
 
+// Edit Question Page (GET)
+router.get('/edit/:id', ensureAuthenticated, (req, res) => {
+    Question.findOne({
+        _id: req.params.id
+    })
+    .then(question => {
+        // Check if question exists
+        if(question.user != req.user.id) {
+            req.flash('error_msg', 'Not Authorized');
+            res.redirect('/questions');
+        } else {
+            res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
+            res.setHeader("Pragma", "no-cache"); 
+            res.setHeader("Expires", "0");
+            res.render('questions/edit', {
+                headtitle: 'Edit a Question',
+                question: question
+            });
+        }
+        
+    });
+});
+
 // Add Question Form (GET)
 router.get('/add', ensureAuthenticated, (req, res) => {
     res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
