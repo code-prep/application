@@ -17,7 +17,11 @@ CodePrep **requires** _nodejs_ (and aditionally npm). If you don't already have 
 ## :open_file_folder: Dependencies
 This application is built using the following NPM Packages
 
-- **[bcrypt.js:](https://github.com/kelektiv/node.bcrypt.js)** Library to help you hash passwords - Optimized bcrypt in JavaScript with zero dependencies. Compatible to the C++ bcrypt binding on node.js and also working in the browser"
+- **[bcrypt.js:](https://github.com/kelektiv/node.bcrypt.js)** Library to help you hash passwords - Optimized bcrypt in JavaScript with zero dependencies. Compatible to the C++ bcrypt binding on node.js and also working in the browser.
+
+- **[body-parser:](https://github.com/expressjs/body-parser)** Node.js body parsing middleware - Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
+
+- **[connect-flash:](https://github.com/jaredhanson/connect-flash)** The flash is a special area of the session used for storing messages. Messages are written to the flash and cleared after being displayed to the user. The flash is typically used in combination with redirects, ensuring that the message is available to the next page that is to be rendered.
 
 ## :camera: Screenshot
 <div align="center">
