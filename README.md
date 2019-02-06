@@ -31,9 +31,11 @@ This application is built using the following npm Packages. The codeprep package
 
 - **[method-override:](https://github.com/expressjs/method-override)** Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
 
+- **[moment:](https://github.com/moment/moment/)** A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.
 
+- **[mongoose:](https://github.com/Automattic/mongoose)** MongoDB object modeling tool designed to work in an asynchronous environment.
 
-
+- **[passport:](https://github.com/jaredhanson/passport)** Authentication middleware for Node.js - Used to authenticate users.
 
 
 ## :camera: Screenshot
