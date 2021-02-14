@@ -1,7 +1,24 @@
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 mx-auto">
         <div class="card card-body register-card">
-            <h3>Login</h3>
+            <h3 class="text-center">Account Login</h3>
+            <form method="post" action="/users/login">
+
+                {{!-- email --}}
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" placeholder="Your email adress" name="email" required>
+                </div>
+
+                {{!-- password --}}
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" placeholder="Your password" name="password" required>
+                </div>
+                
+                {{!-- submit button --}}
+                <button type="submit" class="btn hvr-float form-button">Login</button>
+            </form>
         </div>
     </div>
 </div>

@@ -1,0 +1,44 @@
+{{#each errors}}
+    <div class="alert alert-danger">{{text}}</div>
+{{else}}
+
+{{/each}}
+
+<div class="card card-body">
+  <h3>Add a Question</h3>
+  <form action="/questions" method="post">
+  {{!-- Question form --}}
+    <div class="form-group">
+      <label for="question">Question</label>
+      <input type="text" class="form-control" name="question" required>
+    </div>
+    {{!-- Description form group --}}
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" name="description" required></textarea>
+    </div>
+    <div data-toggle="buttons">
+        <div class="btn-group">
+            <label class="btn btn-primary">
+            <input type="radio" name="difficulty" id="difficulty" value="easy" class="sr-only" required>Easy</label>
+            <label class="btn btn-primary">
+            <input type="radio" name="difficulty" id="difficulty" value="medium" class="sr-only" required>Medium</label>
+            <label class="btn btn-primary">
+            <input type="radio" name="difficulty" id="difficulty" value="hard" class="sr-only" required>Hard</label>
+        </div>
+    </div>
+    {{!-- Radio buttons
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="diff-ez" name="diff_easy" class="custom-control-input">
+        <label class="custom-control-label" for="diff-ez">Easy</label>
+        <input type="radio" id="diff-md" name="diff_med" class="custom-control-input">
+        <label class="custom-control-label" for="diff-md">Medium</label>
+        <input type="radio" id="diff-hd" name="diff_hard" class="custom-control-input">
+        <label class="custom-control-label" for="diff-hd">Hard</label>
+    </div> --}}
+    {{!-- Submit button --}}
+    <div>
+        <button type="submit" class="btn mt-2 hvr-float form-button">Add</button>
+    </div>
+  </form>
+</div>

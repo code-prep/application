@@ -1,5 +1,42 @@
-<nav class="navbar">
+<nav class="navbar navbar-expand-sm pb-4 pt-3 mb-3">
     <div class="container">
-        <h1>Navbar</h1>
+        <a class="navbar-brand" href="/">
+            <img class="nav-brand hvr-float" src="/img/codeprep.png">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars hvr-float"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link hvr-float" href="/dashboard"><strong>Dashboard</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link hvr-float" href="/about"><strong>About</strong></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                {{#if user}}
+                    <li class="nav-item">
+                        <a href="/questions" class="nav-link hvr-float"><strong>Questions</strong></a>
+                    </li>
+                    {{!-- the logout link --}}
+                    <li class="nav-item">
+                        <a href="/users/logout" class="nav-link hvr-float">
+                            <strong>Logout</strong> <i class="fas fa-sign-out-alt"></i> </a>
+                    </li>
+                {{else}}
+                    {{!-- the login link --}}
+                    <li class="nav-item">
+                        <a href="/users/login" class="nav-link hvr-float"><strong>Login</strong></a>
+                    </li>
+                    {{!-- the register link --}}
+                    <li class="nav-item">
+                        <a href="/users/register" class="nav-link hvr-float"><strong>Register</strong></a>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
     </div>
 </nav>

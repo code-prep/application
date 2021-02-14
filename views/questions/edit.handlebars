@@ -1,0 +1,37 @@
+{{#each errors}}
+<div class="alert alert-danger">{{text}}</div>
+{{else}}
+
+{{/each}}
+
+<div class="card card-body">
+    <h3>Edit Question</h3>
+    <form action="/questions/{{question._id}}?_method=PUT" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        {{!-- question --}}
+        <div class="form-group">
+            <label for="question">Question</label>
+            <input type="text" class="form-control" name="question" value="{{question.question}}" required>
+        </div>
+        {{!-- description form --}}
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" name="description" required>{{question.description}}</textarea>
+        </div>
+        {{!-- button group --}}
+        <div data-toggle="buttons">
+            <div class="btn-group">
+                <label class="btn btn-primary">
+                    <input type="radio" name="difficulty" id="difficulty" value="easy" class="sr-only"
+                        required>Easy</label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="difficulty" id="difficulty" value="medium" class="sr-only"
+                        required>Medium</label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="difficulty" id="difficulty" value="hard" class="sr-only"
+                        required>Hard</label>
+            </div>
+        </div>
+        <button type="submit" class="btn mt-2 hvr-float form-button">Edit</button>
+    </form>
+</div>

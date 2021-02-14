@@ -1,7 +1,38 @@
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 mx-auto">
         <div class="card card-body register-card">
-            <h3>Register</h3>
+            <h3 class="text-center">Register for an Account</h3>
+            <form action="/users/register" method="post">
+
+                {{!-- name --}}
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" placeholder="e.g. John Doe" name="name" value="{{name}}"
+                        required>
+                </div>
+
+                {{!-- email --}}
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" placeholder="e.g. johndoe@hotmail.com" name="email" value="{{email}}"
+                        required>
+                </div>
+
+                {{!-- password --}}
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" value="{{password}}" required>
+                </div>
+
+                {{!-- confirm password --}}
+                <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" class="form-control" name="password2" value="{{password2}}" required>
+                </div>
+
+                {{!-- submit button --}}
+                <button type="submit" class="btn form-button hvr-float"><strong>Register</strong></button>
+            </form>
         </div>
     </div>
 </div>

@@ -1,1 +1,13 @@
-<h1>dashboard</h1>
+<div class="jumbotron">
+    <div class="container">
+        {{#if user}}
+            <h1 class="display-4">Welcome back, {{user.name}}</h1>
+            <p class="lead"> You have been a member since: {{user.date}}</p>
+        {{else}}
+            <h1 class="display-4">Welcome to CodePrep</h1>
+            <p class="lead"> To begin, <a href="/users/register">register</a> for an account. 
+                If you already have an account, <a href="/users/login">login</a> and start prepping.
+            </p>
+        {{/if}}
+    </div>
+</div>

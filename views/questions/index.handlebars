@@ -1,0 +1,48 @@
+{{#if questions}}
+<div class="row mb-3">
+  <div class="col-sm-6">
+    <h1>Questions</h1>
+  </div>
+  <div class="col-sm-6">
+    <a type="button" href="/questions/add" class="btn btn-default hvr-float float-right btn-add">Add a Question</a>
+  </div>
+</div>
+{{#grouped_each 4 questions}}
+<div class="row mb-3">
+  {{#each this}}
+  <div class="col-sm-3">
+    <div class="card question-card mb-2" style="max-width: 16rem;">
+      <div class="card-body">
+        {{!-- card headers --}}
+        <h4 class="card-title">{{question}}</h4>
+        <h6 class="card-subtitle mb-2 text-muted">{{difficulty}}</h6>
+        <p class="card-text">{{description}}</p>
+        {{!-- delete button --}}
+        <div class="row">
+          <div class="col-sm-6">
+            <a class="btn btn-circle btn-primary hvr-float float-left" href="/questions/edit/{{_id}}">
+              <i class="far fa-edit"></i></a>
+            {{!-- delete button --}}
+          </div>
+          <div class="col-sm-6">
+            <form method="post" action="/questions/{{_id}}?_method=DELETE">
+              {{!-- use method override to delete --}}
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" class="btn btn-circle btn-danger hvr-float float-right" value="&#xf2ed">
+            </form>
+          </div>
+        </div>
+      </div>
+      {{!-- card footer --}}
+      <div class="card-footer text-muted">Added on: {{strdate}}</div>
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{/grouped_each}}
+
+{{else}}
+<h3>No questions entered</h3>
+<p>Click <a href="/questions/add">here</a> to add a Question</p>
+</div>
+{{/if}}
